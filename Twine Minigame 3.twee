@@ -1,0 +1,46 @@
+:: StoryTitle
+Twine Minigame 3
+
+
+:: StoryData
+{
+  "ifid": "F7A58FA1-A989-45F8-8A67-32910EB9EAFE",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: Start {"position":"600,250","size":"100,100"}
+You wake up inside of a maze. You have no idea how you got here or what is in there. Your only goal is to escape.
+
+There are only two paths, do you go [[left]] or [[right]]?
+
+
+:: forward {"position":"725,500","size":"100,100"}
+You made it past the traps and to the door. But the door requires a key.
+
+<!--If the player has a key, they can open the door, else, they fail and have to restart.-->
+<<if $key == 1>>
+You have the key! You use it to open the door and escape!
+<<else>>
+You don't have the key! [[Try again?->Start]]
+<</if>>
+
+
+:: left {"position":"600,375","size":"100,100"}
+You walk left for a while and you stumble across a deep pit. It's too far to jump and you can't see the bottom. You see a vine hanging from the ceiling. Do you risk [[swinging]] across, or turn back and go to the [[right]]?
+
+
+:: right {"position":"725,375","size":"100,100"}
+You head to the right. You walk until you see what looks like a door up ahead, but there are what look like pressure plates on the floor. Do you move [[forward]] or head [[back->left]]? 
+
+
+:: swinging {"position":"600,500","size":"100,100"}
+You made it across the pit. You see a key on a pedestal and pick it up. 
+[img[https://i.postimg.cc/nVT3NSVB/image.png]]
+There is nowhere to go, your only option is to head [[back->right]]
+
+<!--Gives the player the key so they can unlock the final door.-->
+<<set $key to 1>>
